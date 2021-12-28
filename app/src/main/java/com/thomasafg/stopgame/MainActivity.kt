@@ -12,6 +12,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.reflect.Type
+import java.text.Normalizer
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 response ->
                     val type: Type? = object : TypeToken<City>() {}.type
                     val city = GsonBuilder().create().fromJson(response, type) as City
-                    if (citySearch == city.city_name){
+                    if (cleanString(citySearch) == cleanString(city.city_name)){
                         textLetra.text = "Válido"
                         textLetra.setTextColor(ContextCompat.getColorStateList(this, R.color.green))
                     }else{
@@ -39,10 +40,23 @@ class MainActivity : AppCompatActivity() {
         queue.add(stringRequest)
     }
 
+    private fun cleanString(str: String): String {
+        return Normalizer.normalize(str, Normalizer.Form.NFD).replace("[^\\p{ASCII}]", "")
+    }
+
+    private fun sortChar(){
+        btnStop.setEnabled(false)
+        //postDelayed
+            textLetra.text = (('A'..'Z')).random().toString()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        btnStop.setOnClickListener {
+            sortChar()
+        }
 
         btnVerificar.setOnClickListener {
             searchCity()
