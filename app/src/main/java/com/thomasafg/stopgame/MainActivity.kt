@@ -14,7 +14,6 @@ import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.reflect.Type
 import java.text.Normalizer
-import android.graphics.Typeface
 import android.media.MediaPlayer
 import android.view.KeyEvent
 import android.view.View
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun searchCity(){
         val citySearch: String = editNomeCidade.text.toString()
-        val key: String = "ea14e5fb"
+        val key = "ea14e5fb"
         val url = "https://api.hgbrasil.com/weather?array_limit=1&fields=only_results,city_name&key=${key}&city_name=${citySearch}"
         val queue = Volley.newRequestQueue(this)
         btnVerificar.isEnabled = false
@@ -75,7 +74,7 @@ class MainActivity : AppCompatActivity() {
     private fun hideSoftKeyBoard(context: Context, view: View) {
         try {
             val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm?.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+            imm.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
         } catch (e: Exception) {
         }
     }
