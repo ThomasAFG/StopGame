@@ -26,7 +26,7 @@
         android:fontFamily="@font/audiowide"
         android:text="@string/btn_verificar"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/imgChecagem"
+        app:layout_constraintBottom_toTopOf="@+id/txtChecagem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,25 +48,29 @@
 
     <AutoCompleteTextView
         android:id="@+id/editNomeCidade"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/audiowide"
+        android:hint="@string/placeholder_cidade"
+        android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/btnVerificar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStop"
-        tools:hint="@string/placeholder_cidade" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStop" />
 
-    <ImageView
-        android:id="@+id/imgChecagem"
+    <com.thomasafg.stopgame.FontAwesomeView
+        android:id="@+id/txtChecagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnVerificar"
-        tools:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+        app:layout_constraintTop_toBottomOf="@+id/btnVerificar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

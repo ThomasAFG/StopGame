@@ -3,4 +3,7 @@
     <string name="btn_verificar">Validar</string>
     <string name="btn_sortear">Stop!</string>
     <string name="placeholder_cidade">Digite uma cidade!</string>
+    <string name="txt_valido">\uf00c</string>
+    <string name="txt_invalido">\uf00d</string>
+    <string name="txt_loading">\uf1da</string>
 </resources>
