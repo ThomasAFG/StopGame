@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun searchCity(){
         val citySearch: String = editNomeCidade.text.toString()
-        val key = "ea14e5fb"
+        val key = "a863c021"
         val url = "https://api.hgbrasil.com/weather?array_limit=1&fields=only_results,city_name&key=${key}&city_name=${citySearch}"
         val queue = Volley.newRequestQueue(this)
         btnVerificar.isEnabled = false
@@ -60,11 +60,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun sortChar(){
         btnStop.isEnabled = false
-        val timer = object: CountDownTimer(5000, 300) {
+        textLetra.setTextColor(ContextCompat.getColorStateList(this@MainActivity, R.color.teal_200))
+        val timer = object: CountDownTimer(4000, 200) {
             override fun onTick(millisUntilFinished: Long) {
                 textLetra.text = (('A'..'Z')).random().toString()
             }
             override fun onFinish() {
+                textLetra.setTextColor(ContextCompat.getColorStateList(this@MainActivity, R.color.teal_700))
                 btnStop.isEnabled = true
             }
         }
